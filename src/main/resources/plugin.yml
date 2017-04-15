@@ -1,0 +1,6 @@
+name: PowerfulCookie
+version: ${project.version}
+main: br.com.devmastersouza.powerfulcookie.PowerfulCookie
+authors: [DevMasterSouza]
+description: Special powers (effects) on eat cookie
+website: https://github.com/DevMasterSouza/PowerfulCookie
