@@ -4,7 +4,6 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
 
 import java.util.List;
 
@@ -14,14 +13,14 @@ import java.util.List;
 public class Cookie {
 
     private String name;
-    private List<PotionEffect> effects;
+    private List<Effect> effects;
     private List<String> customLore = null;
     private String eatMessage = null;
     private Sound eatSound = null;
     private boolean broadcastSound = false;
     private String eatBroadcastMessage = null;
 
-    public Cookie(String name, List<PotionEffect> effects) {
+    public Cookie(String name, List<Effect> effects) {
         this.name = name;
         this.effects = effects;
     }
@@ -34,11 +33,11 @@ public class Cookie {
         this.name = name;
     }
 
-    public List<PotionEffect> getEffects() {
+    public List<Effect> getEffects() {
         return effects;
     }
 
-    public void setEffects(List<PotionEffect> effects) {
+    public void setEffects(List<Effect> effects) {
         this.effects = effects;
     }
 

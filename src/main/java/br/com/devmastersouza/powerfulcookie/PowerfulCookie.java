@@ -82,9 +82,9 @@ public final class PowerfulCookie extends JavaPlugin {
         for(String cookiename : getConfig().getConfigurationSection("cookies").getKeys(false)) {
             String prefix = "cookies." + cookiename + ".";
             List<String> l1 = getConfig().getStringList(prefix + "effects");
-            List<PotionEffect> pel = new ArrayList<>();
+            List<Effect> pel = new ArrayList<>();
             for(String str : l1) {
-                PotionEffect pe = Util.potionEffectFromString(str);
+                Effect pe = Util.potionEffectFromString(str);
                 if(pe != null) {
                     pel.add(pe);
                 }
