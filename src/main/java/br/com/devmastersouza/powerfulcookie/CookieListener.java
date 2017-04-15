@@ -1,5 +1,6 @@
 package br.com.devmastersouza.powerfulcookie;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,22 +25,26 @@ public class CookieListener implements Listener {
                         String cookiename = ChatColor.stripColor(item.getItemMeta().getDisplayName()).replaceAll(ChatColor.stripColor(PowerfulCookie.cookiePrefix), "");
                         Cookie cookie = Cookie.getCookieByName(cookiename);
                         if(cookie != null) {
-                            for (Effect effect : cookie.getEffects()) {
-                                event.getPlayer().addPotionEffect(new PotionEffect(effect.getType(), effect.getDuration(), effect.getTier()), true);
-                            }
-                            if (cookie.getEatMessage() != null) {
-                                event.getPlayer().sendMessage(cookie.getEatMessage());
-                            }
-                            if (cookie.getEatBroadcastMessage() != null) {
-                                for (Player online : Util.getOnlinePlayers()) {
-                                    online.sendMessage(cookie.getEatBroadcastMessage().replaceAll("<player>", event.getPlayer().getName()));
+                            EatCookieEvent ece = new EatCookieEvent(event.getPlayer(), cookie);
+                            Bukkit.getPluginManager().callEvent(ece);
+                            if(!ece.isCancelled()) {
+                                for (Effect effect : cookie.getEffects()) {
+                                    event.getPlayer().addPotionEffect(new PotionEffect(effect.getType(), effect.getDuration(), effect.getTier()), true);
                                 }
-                            }
-                            if (cookie.getEatSound() != null) {
-                                event.getPlayer().playSound(event.getPlayer().getLocation(), cookie.getEatSound(), 1F, 1F);
-                                if (cookie.isBroadcastSound()) {
+                                if (cookie.getEatMessage() != null) {
+                                    event.getPlayer().sendMessage(cookie.getEatMessage());
+                                }
+                                if (cookie.getEatBroadcastMessage() != null) {
                                     for (Player online : Util.getOnlinePlayers()) {
-                                        online.playSound(online.getLocation(), cookie.getEatSound(), 1F, 1F);
+                                        online.sendMessage(cookie.getEatBroadcastMessage().replaceAll("<player>", event.getPlayer().getName()));
+                                    }
+                                }
+                                if (cookie.getEatSound() != null) {
+                                    event.getPlayer().playSound(event.getPlayer().getLocation(), cookie.getEatSound(), 1F, 1F);
+                                    if (cookie.isBroadcastSound()) {
+                                        for (Player online : Util.getOnlinePlayers()) {
+                                            online.playSound(online.getLocation(), cookie.getEatSound(), 1F, 1F);
+                                        }
                                     }
                                 }
                             }
