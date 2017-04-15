@@ -32,4 +32,11 @@ public class Cookie {
     public void setEffects(List<PotionEffect> effects) {
         this.effects = effects;
     }
+
+    public static Cookie getCookieByName(String name) {
+        for(Cookie cookie : PowerfulCookie.cookies){
+            if(name.equalsIgnoreCase(cookie.getName())) return cookie;
+        }
+        return null;
+    }
 }

@@ -4,10 +4,10 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 /**
- * Project Others Projects.
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
  */
 public class Util {
+
     public static String potionEffectToString(PotionEffect potion) {
         return potion.getType().getName() + ":" + potion.getAmplifier() + ":" + potion.getDuration();
     }
