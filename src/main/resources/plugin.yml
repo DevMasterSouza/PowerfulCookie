@@ -4,3 +4,8 @@ main: br.com.devmastersouza.powerfulcookie.PowerfulCookie
 authors: [DevMasterSouza]
 description: Special powers (effects) on eat cookie
 website: https://github.com/DevMasterSouza/PowerfulCookie
+
+commands:
+  powerfulcookie:
+    description: Powerfulcookie command
+    aliases: [pc]

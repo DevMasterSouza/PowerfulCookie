@@ -19,6 +19,30 @@ public final class PowerfulCookie extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+
+        getCommand("powerfulcookie").setExecutor((sender, command, label, args) -> {
+            if(args.length == 0) {
+                sender.sendMessage("§a------ §6§lPowerfulCookie §a------");
+                sender.sendMessage("§aCreate by §bDevMasterSouza");
+                sender.sendMessage("§aCommands:");
+                sender.sendMessage("§c/pc reload - §aRELOAD CONFIG");
+                sender.sendMessage("§c/pc getcookie [name] - §aGET COOKIE ITEM");
+                sender.sendMessage("§a------ §6§lPowerfulCookie §a------");
+            }
+            if(args.length > 0) {
+                if(args[0].equalsIgnoreCase("reload")) {
+
+                }
+                if(args[0].equalsIgnoreCase("getcookie")) {
+                    if(args.length > 1) {
+                        
+                    }else{
+                        sender.sendMessage(ChatColor.RED + "use /pc getcookie [name]");
+                    }
+                }
+            }
+            return true;
+        });
     }
 
     public void load() {
