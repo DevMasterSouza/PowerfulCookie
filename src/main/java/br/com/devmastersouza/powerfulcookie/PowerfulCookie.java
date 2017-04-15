@@ -2,6 +2,7 @@ package br.com.devmastersouza.powerfulcookie;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 
@@ -14,11 +15,16 @@ import java.util.List;
 public final class PowerfulCookie extends JavaPlugin {
 
     protected static String cookiePrefix;
-    protected static List<Cookie> cookies;
+    protected static List<Cookie> cookies = new ArrayList<>();
+    private String nopermission;
+    private String onlyingame;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        load();
+        nopermission = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.nopermission"));
+        onlyingame = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.onlyingame"));
 
         getCommand("powerfulcookie").setExecutor((sender, command, label, args) -> {
             if(args.length == 0) {
@@ -31,11 +37,27 @@ public final class PowerfulCookie extends JavaPlugin {
             }
             if(args.length > 0) {
                 if(args[0].equalsIgnoreCase("reload")) {
-
+                    if(sender.hasPermission("PowerfulCookie.cmd.reload")) {
+                        unload();
+                        reloadConfig();
+                        load();
+                        sender.sendMessage("§aConfig reloaded");
+                    }else{
+                        sender.sendMessage(nopermission);
+                    }
                 }
                 if(args[0].equalsIgnoreCase("getcookie")) {
                     if(args.length > 1) {
-                        
+                        if(sender instanceof Player) {
+                            if(sender.hasPermission("PowerfulCookie.cmd.getcookie")) {
+                                Player player = (Player) sender;
+                                
+                            }else{
+                                sender.sendMessage(nopermission);
+                            }
+                        }else{
+                            sender.sendMessage(onlyingame);
+                        }
                     }else{
                         sender.sendMessage(ChatColor.RED + "use /pc getcookie [name]");
                     }

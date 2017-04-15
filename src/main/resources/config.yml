@@ -22,7 +22,10 @@
 #    eatSound: List of sounds https://jd.bukkit.org/org/bukkit/Sound.html
 #    broadcastSound: true or false - broadcast sound for all players (default false)
 #    eatBroadcastMessage: broadcast message to all players
-
+#
+msg:
+  nopermission: '&cYou dont have permission to use this command'
+  onlyingame: '&cThis command works only in game.'
 cookiePrefix: '&6&lPowerfulCookie: '
 cookies:
   boss:
