@@ -1,0 +1,46 @@
+# PowerfulCookie
+# Create by DevMasterSouza
+# Source https://github.com/DevMasterSouza/PowerfulCookie/
+# Any doubt, send me on twitter https://twitter.com/DevMasterSouza
+#
+# PT-BR
+# Criado por DevMasterSouza
+# Source https://github.com/DevMasterSouza/PowerfulCookie/
+# Qualquer duvida, me manda no twitter https://twitter.com/DevMasterSouza
+#
+# Permissions:
+# PowerfulCookie.cmd.getcookie (pega um cookie)
+# PowerfulCookie.cmd.reload (reload na config)
+#
+#cookies:
+#  cookiename:
+#    effects:
+#    - name or id;level;seconds
+#    customLore:
+#    - custom lore
+#    eatMessage: on player eat message
+#    eatSound: List of sounds https://jd.bukkit.org/org/bukkit/Sound.html
+#    broadcastSound: true or false - broadcast sound for all players (default false)
+#    eatBroadcastMessage: broadcast message to all players
+
+cookiePrefix: '&6&lPowerfulCookie: '
+cookies:
+  boss:
+    effects:
+    - 1;2;300 #speed 5 minutes
+    - 5;2;300 #damage 5 minutes
+    - 10;2;300 #regenaration 5 minutes
+    - 11;2;300 #damage resistance 5 minutes
+  god:
+    effects:
+    - 1;2;600 #speed 10 minutes
+    - 5;2;600 #damage 10 minutes
+    - 10;2;600 #regenaration 10 minutes
+    - 11;2;600 #damage resistance 10 minutes
+    customLore:
+    - '&6This cookie belongs the God!'
+    eatMessage: '&4&lYOU EAT THE GOD COOKIE?!'
+    eatSound: WITHER_SPAWN
+    broadcastSound: true
+    eatBroadcastMessage: '&4&lThe <player> eat the GOD COOKIE!!!'
+
