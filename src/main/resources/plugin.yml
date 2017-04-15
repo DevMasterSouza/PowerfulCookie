@@ -9,3 +9,16 @@ commands:
   powerfulcookie:
     description: Powerfulcookie command
     aliases: [pc]
+
+permissions:
+  PowerfulCookie.*:
+    default: op
+    description: All permissions of the plugin
+    children:
+      WG152ExtraFlags.cmd.*: true
+  PowerfulCookie.cmd.*:
+    default: op
+    description: All commands permissions of the plugin
+    children:
+      WG152ExtraFlags.cmd.reload: true
+      WG152ExtraFlags.cmd.getcookie: true
