@@ -9,11 +9,11 @@ import org.bukkit.potion.PotionEffectType;
 public class Util {
 
     public static String potionEffectToString(PotionEffect potion) {
-        return potion.getType().getName() + ":" + potion.getAmplifier() + ":" + potion.getDuration();
+        return potion.getType().getName() + ";" + potion.getAmplifier() + ";" + potion.getDuration();
     }
     public static PotionEffect potionEffectFromString(String string) {
         try {
-            String[] args = string.split(":");
+            String[] args = string.split(";");
             for (PotionEffectType type : PotionEffectType.values()) {
                 if(isInt(args[0])) {
                     if(Integer.parseInt(args[0]) == type.getId()) {
