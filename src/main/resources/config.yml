@@ -29,15 +29,15 @@ msg:
   configreloaded: '&aConfig reloaded'
   cookiedontexist: '&cThis cookie dont exist.'
   cookiereceived: '&aYou receive the cookie &6<name>&a.'
-cookiePrefix: '&6&lPowerfulCookie: '
+cookiePrefix: '&b&lPowerfulCookie: &6'
 cookies:
-  boss:
+  BOSS:
     effects:
     - 1;2;300 #speed 5 minutes
     - 5;2;300 #damage 5 minutes
     - 10;2;300 #regenaration 5 minutes
     - 11;2;300 #damage resistance 5 minutes
-  god:
+  GOD:
     effects:
     - 1;2;600 #speed 10 minutes
     - 5;2;600 #damage 10 minutes
