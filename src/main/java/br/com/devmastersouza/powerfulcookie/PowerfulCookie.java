@@ -28,6 +28,8 @@ public final class PowerfulCookie extends JavaPlugin {
         cookiedontexist = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.cookiedontexist"));
         cookiereceived = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.cookiereceived"));
 
+        getServer().getPluginManager().registerEvents(new CookieListener(), this);
+
         getCommand("powerfulcookie").setExecutor((sender, command, label, args) -> {
             if(args.length == 0) {
                 sender.sendMessage("§a------ §6§lPowerfulCookie §a------");
@@ -67,7 +69,7 @@ public final class PowerfulCookie extends JavaPlugin {
                             sender.sendMessage(onlyingame);
                         }
                     }else{
-                        sender.sendMessage(ChatColor.RED + "use /pc getcookie [name]");
+                        sender.sendMessage(ChatColor.RED + "Use /pc getcookie [name]");
                     }
                 }
             }
