@@ -1,6 +1,9 @@
 package br.com.devmastersouza.powerfulcookie;
 
+import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 
 import java.util.List;
@@ -81,6 +84,15 @@ public class Cookie {
 
     public void setEatBroadcastMessage(String eatBroadcastMessage) {
         this.eatBroadcastMessage = eatBroadcastMessage;
+    }
+
+    public ItemStack getCookie() {
+        ItemStack item = new ItemStack(Material.COOKIE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(PowerfulCookie.cookiePrefix + name);
+        if(customLore != null) meta.setLore(customLore);
+        item.setItemMeta(meta);
+        return item;
     }
 
     public static Cookie getCookieByName(String name) {

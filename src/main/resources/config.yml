@@ -26,6 +26,9 @@
 msg:
   nopermission: '&cYou dont have permission to use this command'
   onlyingame: '&cThis command works only in game.'
+  configreloaded: '&aConfig reloaded'
+  cookiedontexist: '&cThis cookie dont exist.'
+  cookiereceived: '&aYou receive the cookie &6<name>&a.'
 cookiePrefix: '&6&lPowerfulCookie: '
 cookies:
   boss:

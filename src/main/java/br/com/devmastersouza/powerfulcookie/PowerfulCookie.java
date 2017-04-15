@@ -16,8 +16,7 @@ public final class PowerfulCookie extends JavaPlugin {
 
     protected static String cookiePrefix;
     protected static List<Cookie> cookies = new ArrayList<>();
-    private String nopermission;
-    private String onlyingame;
+    private String nopermission, onlyingame, configreloaded, cookiedontexist, cookiereceived;
 
     @Override
     public void onEnable() {
@@ -25,6 +24,9 @@ public final class PowerfulCookie extends JavaPlugin {
         load();
         nopermission = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.nopermission"));
         onlyingame = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.onlyingame"));
+        configreloaded = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.configreloaded"));
+        cookiedontexist = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.cookiedontexist"));
+        cookiereceived = ChatColor.translateAlternateColorCodes('&',getConfig().getString("msg.cookiereceived"));
 
         getCommand("powerfulcookie").setExecutor((sender, command, label, args) -> {
             if(args.length == 0) {
@@ -41,7 +43,7 @@ public final class PowerfulCookie extends JavaPlugin {
                         unload();
                         reloadConfig();
                         load();
-                        sender.sendMessage("§aConfig reloaded");
+                        sender.sendMessage(configreloaded);
                     }else{
                         sender.sendMessage(nopermission);
                     }
@@ -51,7 +53,13 @@ public final class PowerfulCookie extends JavaPlugin {
                         if(sender instanceof Player) {
                             if(sender.hasPermission("PowerfulCookie.cmd.getcookie")) {
                                 Player player = (Player) sender;
-                                
+                                Cookie cookie = Cookie.getCookieByName(args[1]);
+                                if(cookie != null) {
+                                    player.getInventory().addItem(cookie.getCookie());
+                                    sender.sendMessage(cookiereceived.replaceAll("<name>", cookie.getName()));
+                                }else{
+                                    sender.sendMessage(cookiedontexist);
+                                }
                             }else{
                                 sender.sendMessage(nopermission);
                             }
