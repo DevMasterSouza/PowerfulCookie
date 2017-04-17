@@ -3,6 +3,7 @@ package br.com.devmastersouza.powerfulcookie;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -35,14 +36,15 @@ public class Util {
     public static Effect potionEffectFromString(String string) {
         try {
             String[] args = string.split(";");
-            for (EffectType type : EffectType.values()) {
+            for (PotionEffectType type : PotionEffectType.values()) {
+                if(type == null) continue;
                 if(isInt(args[0])) {
-                    if(Integer.parseInt(args[0]) == type.getType().getId()) {
-                        return new Effect(type.getType(), Integer.parseInt(args[2].trim())*20, Integer.parseInt(args[1].trim()));
+                    if(Integer.parseInt(args[0]) == type.getId()) {
+                        return new Effect(type, Integer.parseInt(args[2].trim())*20, Integer.parseInt(args[1].trim()));
                     }
                 }else{
-                    if(args[0].equalsIgnoreCase(type.getType().getName())) {
-                        return new Effect(type.getType(),Integer.parseInt(args[2].trim())*20, Integer.parseInt(args[1].trim()));
+                    if(args[0].equalsIgnoreCase(type.getName())) {
+                        return new Effect(type,Integer.parseInt(args[2].trim())*20, Integer.parseInt(args[1].trim()));
                     }
                 }
             }
