@@ -22,6 +22,9 @@
 #    eatSound: List of sounds https://jd.bukkit.org/org/bukkit/Sound.html
 #    broadcastSound: true or false - broadcast sound for all players (default false)
 #    eatBroadcastMessage: broadcast message to all players
+#    eatRadiusMessage: radius message
+#    messageRadius: 30 #message radius distance
+#    soundRadius: 30 #sound radius distance
 #
 msg:
   nopermission: '&cYou dont have permission to use this command'
@@ -33,10 +36,23 @@ cookiePrefix: '&b&lPowerfulCookie: &6'
 cookies:
   BOSS:
     effects:
-    - 1;2;300 #speed 5 minutes
-    - 5;2;300 #damage 5 minutes
-    - 10;2;300 #regenaration 5 minutes
-    - 11;2;300 #damage resistance 5 minutes
+    - 1;2;300 #speed 2 - 5 minutes
+    - 5;2;300 #damage 2 - 5 minutes
+    - 10;2;300 #regenaration 2 - 5 minutes
+    - 11;2;300 #damage resistance 2 - 5 minutes
+  PVP:
+    effects:
+    - 1;3;300 #speed 3 - 5 minutes
+    - 5;2;300 #damage 2 - 5 minutes
+    - 10;4;180 #regenaration 4 - 3 minutes
+    - 11;2;300 #damage resistance 2 - 5 minutes
+    customLore:
+    - '&3PVP cookie'
+    eatMessage: '&6&lYou eat eat the &4PVP &6cookie.<br>Kill everyone!!'
+    eatSound: WITHER_DEATH
+    soundRadius: 30 #sound radius distance
+    eatRadiusMessage: '&4&lTHE <player> EAT THE PVP COOKIE!<br>RUN IF YOU CAN!!'
+    messageRadius: 30 #message radius distance
   GOD:
     effects:
     - 1;2;600 #speed 10 minutes
