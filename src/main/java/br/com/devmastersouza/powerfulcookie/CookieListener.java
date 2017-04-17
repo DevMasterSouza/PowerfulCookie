@@ -46,6 +46,12 @@ public class CookieListener implements Listener {
                                 }
                                 if (cookie.getEatSound() != null) {
                                     event.getPlayer().playSound(event.getPlayer().getLocation(), cookie.getEatSound(), 1F, 1F);
+                                    if (cookie.getSoundRadius() > 0) {
+                                        for (Entity en : event.getPlayer().getNearbyEntities(cookie.getSoundRadius(), cookie.getSoundRadius(), cookie.getSoundRadius())) {
+                                            if (en instanceof Player)
+                                                ((Player) en).playSound(((Player) en).getLocation(), cookie.getEatSound(), 1F, 1F);
+                                        }
+                                    }
                                     if (cookie.isBroadcastSound()) {
                                         for (Player online : Util.getOnlinePlayers()) {
                                             online.playSound(online.getLocation(), cookie.getEatSound(), 1F, 1F);
