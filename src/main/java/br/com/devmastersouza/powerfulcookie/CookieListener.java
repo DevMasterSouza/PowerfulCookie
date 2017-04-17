@@ -35,9 +35,7 @@ public class CookieListener implements Listener {
                                     event.getPlayer().sendMessage(cookie.getEatMessage());
                                 }
                                 if (cookie.getEatBroadcastMessage() != null) {
-                                    for (Player online : Util.getOnlinePlayers()) {
-                                        online.sendMessage(cookie.getEatBroadcastMessage().replaceAll("<player>", event.getPlayer().getName()));
-                                    }
+                                    Util.getOnlinePlayers().forEach(o -> o.sendMessage(cookie.getEatBroadcastMessage().replaceAll("<player>", event.getPlayer().getName())));
                                 }
                                 if(cookie.getEatRadiusMessage() != null) {
                                     for(Entity en : event.getPlayer().getNearbyEntities(cookie.getMessageRadius(),cookie.getMessageRadius(),cookie.getMessageRadius())){
@@ -53,9 +51,7 @@ public class CookieListener implements Listener {
                                         }
                                     }
                                     if (cookie.isBroadcastSound()) {
-                                        for (Player online : Util.getOnlinePlayers()) {
-                                            online.playSound(online.getLocation(), cookie.getEatSound(), 1F, 1F);
-                                        }
+                                        Util.getOnlinePlayers().forEach(o -> o.playSound(o.getLocation(), cookie.getEatSound(), 1F, 1F));
                                     }
                                 }
                             }
