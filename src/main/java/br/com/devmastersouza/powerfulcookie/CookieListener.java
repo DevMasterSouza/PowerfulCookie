@@ -2,6 +2,7 @@ package br.com.devmastersouza.powerfulcookie;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,6 +37,11 @@ public class CookieListener implements Listener {
                                 if (cookie.getEatBroadcastMessage() != null) {
                                     for (Player online : Util.getOnlinePlayers()) {
                                         online.sendMessage(cookie.getEatBroadcastMessage().replaceAll("<player>", event.getPlayer().getName()));
+                                    }
+                                }
+                                if(cookie.getEatRadiusMessage() != null) {
+                                    for(Entity en : event.getPlayer().getNearbyEntities(cookie.getMessageRadius(),cookie.getMessageRadius(),cookie.getMessageRadius())){
+                                        if(en instanceof Player) ((Player)en).sendMessage(cookie.getEatRadiusMessage().replaceAll("<player>", event.getPlayer().getName()));
                                     }
                                 }
                                 if (cookie.getEatSound() != null) {
