@@ -132,6 +132,12 @@ public final class PowerfulCookie extends JavaPlugin {
             if(getConfig().contains(prefix + "eatBroadcastMessage")) {
                 cookie.setEatBroadcastMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString(prefix + "eatBroadcastMessage")).replaceAll("<br>", "\n"));
             }
+            if(getConfig().contains(prefix + "eatRadiusMessage")) {
+                cookie.setEatRadiusMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString(prefix + "eatRadiusMessage")).replaceAll("<br>", "\n"));
+            }
+            if(getConfig().contains(prefix + "messageRadius")) {
+                cookie.setMessageRadius(getConfig().getInt(prefix + "messageRadius"));
+            }
             cookies.add(cookie);
         }
     }
