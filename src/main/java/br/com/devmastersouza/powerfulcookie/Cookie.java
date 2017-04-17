@@ -21,6 +21,7 @@ public class Cookie {
     private String eatBroadcastMessage = null;
     private String eatRadiusMessage = null;
     private int messageRadius = 0;
+    private int soundRadius = 0;
 
     public Cookie(String name, List<Effect> effects) {
         this.name = name;
@@ -101,6 +102,14 @@ public class Cookie {
 
     public void setMessageRadius(int messageRadius) {
         this.messageRadius = messageRadius;
+    }
+
+    public int getSoundRadius() {
+        return soundRadius;
+    }
+
+    public void setSoundRadius(int soundRadius) {
+        this.soundRadius = soundRadius;
     }
 
     public ItemStack getCookie() {
