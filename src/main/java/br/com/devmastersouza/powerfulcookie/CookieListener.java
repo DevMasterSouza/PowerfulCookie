@@ -28,7 +28,7 @@ public class CookieListener implements Listener {
                             Bukkit.getPluginManager().callEvent(ece);
                             if(!ece.isCancelled()) {
                                 for (Effect effect : cookie.getEffects()) {
-                                    event.getPlayer().addPotionEffect(new PotionEffect(effect.getType(), effect.getDuration(), effect.getTier()), true);
+                                    event.getPlayer().addPotionEffect(new PotionEffect(effect.getType(), effect.getDuration(), effect.getTier()-1), true);
                                 }
                                 if (cookie.getEatMessage() != null) {
                                     event.getPlayer().sendMessage(cookie.getEatMessage());
