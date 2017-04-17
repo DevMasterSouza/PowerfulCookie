@@ -2,6 +2,8 @@ package br.com.devmastersouza.powerfulcookie;
 
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -110,6 +112,12 @@ public class Cookie {
 
     public void setSoundRadius(int soundRadius) {
         this.soundRadius = soundRadius;
+    }
+
+    public void sendSound(Entity entity) {
+        if(entity instanceof Player) {
+            ((Player)entity).playSound(((Player)entity).getLocation(), getEatSound(), 1F, 1F);
+        }
     }
 
     public ItemStack getCookie() {
