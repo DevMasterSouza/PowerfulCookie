@@ -84,11 +84,11 @@ public final class PowerfulCookie extends JavaPlugin {
                 }
                 if(args[0].equalsIgnoreCase("getcookie")) {
                     if (sender.hasPermission("PowerfulCookie.cmd.getcookie")) {
-                        return cookies.stream().filter(c -> Util.startWithIgnorecase(c.getName(), args[0])).map(Cookie::getName).collect(Collectors.toList());
+                        return cookies.stream().filter(c -> Util.startWithIgnorecase(c.getName(), args[1])).map(Cookie::getName).collect(Collectors.toList());
                     }
                 }
             }else if(args.length > 0){
-                return Arrays.asList("reload", "getcookie").stream().filter(s -> s.toLowerCase().startsWith(args[0].toLowerCase())).collect(Collectors.toList());
+                return Arrays.asList("reload", "getcookie").stream().filter(s -> Util.startWithIgnorecase(s,args[0])).collect(Collectors.toList());
             }
             return Collections.emptyList();
         });
