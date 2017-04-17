@@ -10,7 +10,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 
 /**
- * Project Others Projects.
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
  */
 public class CookieListener implements Listener {

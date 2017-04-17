@@ -3,7 +3,6 @@ package br.com.devmastersouza.powerfulcookie;
 import org.bukkit.potion.PotionEffectType;
 
 /**
- * Project Others Projects.
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
  */
 public enum EffectType {

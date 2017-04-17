@@ -6,7 +6,6 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
 /**
- * Project Others Projects.
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
  */
 public class EatCookieEvent extends Event implements Cancellable{
