@@ -4,10 +4,12 @@ import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.potion.PotionEffect;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
@@ -74,6 +76,21 @@ public final class PowerfulCookie extends JavaPlugin {
                 }
             }
             return true;
+        });
+        getCommand("powerfulcookie").setTabCompleter((sender, command, alias, args) -> {
+            if(args.length > 1) {
+                if (args[0].equalsIgnoreCase("reload")) {
+                    return Collections.emptyList();
+                }
+                if(args[0].equalsIgnoreCase("getcookie")) {
+                    if (sender.hasPermission("PowerfulCookie.cmd.getcookie")) {
+                        return cookies.stream().filter(c -> Util.startWithIgnorecase(c.getName(), args[0])).map(Cookie::getName).collect(Collectors.toList());
+                    }
+                }
+            }else if(args.length > 0){
+                return Arrays.asList("reload", "getcookie").stream().filter(s -> s.toLowerCase().startsWith(args[0].toLowerCase())).collect(Collectors.toList());
+            }
+            return Collections.emptyList();
         });
     }
 
