@@ -14,7 +14,7 @@ import org.bukkit.potion.PotionEffect;
  * Create by DevMasterSouza - email: devmastersouza@gmail.com
  */
 public class CookieListener implements Listener {
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onPlayerEat(PlayerItemConsumeEvent event) {
         ItemStack item = event.getItem();
         if(item != null){
