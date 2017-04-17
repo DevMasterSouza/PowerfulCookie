@@ -27,6 +27,11 @@ public class Util {
     public static String potionEffectToString(PotionEffect potion) {
         return potion.getType().getName() + ";" + potion.getAmplifier() + ";" + potion.getDuration();
     }
+
+    public static boolean startWithIgnorecase(String string, String regex) {
+        return string.toLowerCase().startsWith(regex.toLowerCase());
+    }
+
     public static Effect potionEffectFromString(String string) {
         try {
             String[] args = string.split(";");
