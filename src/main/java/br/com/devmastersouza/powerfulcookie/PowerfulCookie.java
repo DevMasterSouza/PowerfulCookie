@@ -116,7 +116,7 @@ public final class PowerfulCookie extends JavaPlugin {
                 cookie.setCustomLore(coloredl2);
             }
             if(getConfig().contains(prefix + "eatMessage")) {
-                cookie.setEatMessage(ChatColor.translateAlternateColorCodes('&',getConfig().getString(prefix + "eatMessage")));
+                cookie.setEatMessage(ChatColor.translateAlternateColorCodes('&',getConfig().getString(prefix + "eatMessage")).replaceAll("<br>", "\n"));
             }
             if(getConfig().contains(prefix + "eatSound")) {
                 for(Sound sound : Sound.values()) {
@@ -130,7 +130,7 @@ public final class PowerfulCookie extends JavaPlugin {
                 cookie.setBroadcastSound(getConfig().getBoolean(prefix + "broadcastSound"));
             }
             if(getConfig().contains(prefix + "eatBroadcastMessage")) {
-                cookie.setEatBroadcastMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString(prefix + "eatBroadcastMessage")));
+                cookie.setEatBroadcastMessage(ChatColor.translateAlternateColorCodes('&', getConfig().getString(prefix + "eatBroadcastMessage")).replaceAll("<br>", "\n"));
             }
             cookies.add(cookie);
         }
