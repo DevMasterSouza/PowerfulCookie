@@ -48,7 +48,7 @@ cookies:
     - 11;2;300 #damage resistance 2 - 5 minutes
     customLore:
     - '&3PVP cookie'
-    eatMessage: '&6&lYou eat eat the &4PVP &6cookie.<br>Kill everyone!!'
+    eatMessage: '&6&lYou eat the &4PVP &6cookie.<br>Kill everyone!!'
     eatSound: WITHER_DEATH
     soundRadius: 30 #sound radius distance
     eatRadiusMessage: '&4&lTHE <player> EAT THE PVP COOKIE!<br>RUN IF YOU CAN!!'
