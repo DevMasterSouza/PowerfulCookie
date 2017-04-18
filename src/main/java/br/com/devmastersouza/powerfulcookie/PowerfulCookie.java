@@ -143,6 +143,9 @@ public final class PowerfulCookie extends JavaPlugin {
             if(getConfig().contains(prefix + "soundRadius")) {
                 cookie.setSoundRadius(getConfig().getInt(prefix + "soundRadius"));
             }
+            if(getConfig().contains(prefix + "fakeEnchant")) {
+                cookie.setFakeEnchant(getConfig().getBoolean(prefix + "fakeEnchant"));
+            }
             cookies.add(cookie);
         }
     }
