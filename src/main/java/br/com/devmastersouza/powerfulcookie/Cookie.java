@@ -24,6 +24,7 @@ public class Cookie {
     private String eatRadiusMessage = null;
     private int messageRadius = 0;
     private int soundRadius = 0;
+    private boolean fakeEnchant = false;
 
     public Cookie(String name, List<Effect> effects) {
         this.name = name;
@@ -114,6 +115,14 @@ public class Cookie {
         this.soundRadius = soundRadius;
     }
 
+    public boolean hasFakeEnchant() {
+        return fakeEnchant;
+    }
+
+    public void setFakeEnchant(boolean fakeEnchant) {
+        this.fakeEnchant = fakeEnchant;
+    }
+
     public void sendSound(Entity entity) {
         if(entity instanceof Player) {
             ((Player)entity).playSound(((Player)entity).getLocation(), getEatSound(), 1F, 1F);
@@ -125,6 +134,7 @@ public class Cookie {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(PowerfulCookie.cookiePrefix + name);
         if(customLore != null) meta.setLore(customLore);
+        if(fakeEnchant) meta.addEnchant(Glow.enchant, 1, true);
         item.setItemMeta(meta);
         return item;
     }
