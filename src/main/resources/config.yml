@@ -25,6 +25,7 @@
 #    eatRadiusMessage: radius message
 #    messageRadius: 30 #message radius distance
 #    soundRadius: 30 #sound radius distance
+#    fakeEnchant: true #make item glow as enchant
 #
 msg:
   nopermission: '&cYou dont have permission to use this command'
@@ -65,4 +66,5 @@ cookies:
     eatSound: WITHER_SPAWN
     broadcastSound: true
     eatBroadcastMessage: '&4&lThe <player> eat the GOD COOKIE!!!'
+    fakeEnchant: true
 
