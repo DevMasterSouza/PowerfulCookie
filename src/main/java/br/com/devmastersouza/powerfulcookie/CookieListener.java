@@ -22,8 +22,7 @@ public class CookieListener implements Listener {
                 if(item.getItemMeta().getDisplayName() != null) {
                     if(ChatColor.stripColor(item.getItemMeta().getDisplayName())
                             .startsWith(ChatColor.stripColor(PowerfulCookie.cookiePrefix))){
-                        String cookiename = ChatColor.stripColor(item.getItemMeta().getDisplayName()).replaceAll(ChatColor.stripColor(PowerfulCookie.cookiePrefix), "");
-                        Cookie cookie = Cookie.getCookieByName(cookiename);
+                        Cookie cookie = Cookie.getCookieByName(ChatColor.stripColor(item.getItemMeta().getDisplayName()).replaceAll(ChatColor.stripColor(PowerfulCookie.cookiePrefix), ""));
                         if(cookie != null) {
                             EatCookieEvent ece = new EatCookieEvent(event.getPlayer(), cookie);
                             Bukkit.getPluginManager().callEvent(ece);
