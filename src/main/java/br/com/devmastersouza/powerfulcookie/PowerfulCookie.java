@@ -32,6 +32,8 @@ public final class PowerfulCookie extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new CookieListener(), this);
 
+        Glow.registerGlow();
+
         getCommand("powerfulcookie").setExecutor((sender, command, label, args) -> {
             if(args.length == 0) {
                 sender.sendMessage("§a------ §6§lPowerfulCookie §a------");
