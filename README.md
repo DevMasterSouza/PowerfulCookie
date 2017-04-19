@@ -23,12 +23,9 @@ Commands
 
 Configuration
 -----
-Create Cookie
-
-![img1](http://image.prntscr.com/image/0a17e54f75964c23a80315f182f94b7c.png)
-
-All cookie config
-
+Create Cookie<br>
+![img1](http://image.prntscr.com/image/0a17e54f75964c23a80315f182f94b7c.png)<br>
+All cookie config<br>
 ![img2](http://image.prntscr.com/image/c4666a2120c14c2694e85797fe74c146.png)
 
 ----------
@@ -49,6 +46,5 @@ Download
 
 Links
 ----
-[Video(PT-BR)](https://youtu.be/f-StxVQpM6g)
-
+[Video(PT-BR)](https://youtu.be/f-StxVQpM6g)<br>
 [Twitter](https://twitter.com/DevMasterSouza)
